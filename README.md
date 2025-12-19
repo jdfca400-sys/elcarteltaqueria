@@ -75,4 +75,4 @@ Para personalizar el sitio:
 
 ## 📄 Licencia
 
-Copyright 2020 **El Cartel Taquería** – Design by **π2 Marketing Digital**
+Copyright 2025 **El Cartel Taquería** – Design by Juan Diego Fonseca en dirección de Julián Moreno
