@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Cartel Taquería</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Patrón de fondo texturizado */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #ff4500;
+            text-shadow:
+                3px 3px 0px #ff6b00,
+                6px 6px 0px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 69, 0, 0.5);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: #ffa500;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 40px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 12px 25px;
+            display: block;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.2) 0%, rgba(255, 140, 0, 0.2) 100%);
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+            border-color: #ffa500;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            color: #ff4500;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff4500, transparent);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 69, 0, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            border-color: #ff4500;
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .menu-item-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .menu-item-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: #ffa500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-item-description {
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: #ff4500;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.3) 0%, rgba(255, 140, 0, 0.3) 100%);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 69, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 69, 0, 0.5);
+            border-color: #ffa500;
+        }
+
+        .social-link::before {
+            content: '📱';
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .social-link.whatsapp::before {
+            content: '💬';
+        }
+
+        .social-link.instagram::before {
+            content: '📷';
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(255, 69, 0, 0.3);
+            margin-top: 80px;
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: #ff4500;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .footer-tagline {
+            color: #ffa500;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff4500, transparent);
+            margin: 25px auto;
+        }
+
+        .footer-info {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-info strong {
+            color: #ffa500;
+        }
+
+        .footer-copyright {
+            color: #777777;
+            font-size: 0.85rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 69, 0, 0.2);
+        }
+
+        footer a {
+            color: #ffa500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff4500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-brand {
+                font-size: 1.5rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 40px 15px 25px;
+                margin-top: 60px;
+            }
+        }
+
+        /* Decorative elements */
+        .decoration {
+            position: fixed;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .decoration-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 8rem;
+            transform: rotate(-15deg);
+        }
+
+        .decoration-2 {
+            top: 60%;
+            right: 5%;
+            font-size: 6rem;
+            transform: rotate(15deg);
+        }
+
+        .decoration-3 {
+            bottom: 10%;
+            left: 10%;
+            font-size: 5rem;
+            transform: rotate(-10deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="decoration decoration-1">🌮</div>
+    <div class="decoration decoration-2">🌶️</div>
+    <div class="decoration decoration-3">🥑</div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">El Cartel Taquería</h1>
+            <p class="tagline">Auténtico Sabor Mexicano</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#entradas">Entradas</a></li>
+                <li><a href="#burros">Burros</a></li>
+                <li><a href="#tacos">Tacos</a></li>
+                <li><a href="#totopos">Totopos</a></li>
+                <li><a href="#flautas">Flautas</a></li>
+                <li><a href="#quesadillas">Quesadillas</a></li>
+                <li><a href="#bebidas">Bebidas</a></li>
+            </ul>
+        </nav>
+
+        <section id="entradas" class="menu-section">
+            <h2 class="section-title">Entradas</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="menu-item-icon">🥗</span>
+                    <h3 class="menu-item-title">Guacamole</h3>
+                    <p class="menu-item-description">Aguacate fresco con cebolla, cilantro y limón</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🧀</span>
+                    <h3 class="menu-item-title">Queso Fundido</h3>
+                    <p class="menu-item-description">Queso derretido con chorizo y chiles</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🥑</span>
+                    <h3 class="menu-item-title">Nachos</h3>
+                    <p class="menu-item-description">Totopos con queso, jalapeños y crema</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="burros" class="menu-section">
+            <h2 class="section-title">Burros</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌯</span>
+                    <h3 class="menu-item-title">Burro de Carne</h3>
+                    <p class="menu-item-description">Tortilla grande rellena de carne asada</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌯</span>
+                    <h3 class="menu-item-title">Burro de Pollo</h3>
+                    <p class="menu-item-description">Tortilla grande rellena de pollo deshebrado</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌯</span>
+                    <h3 class="menu-item-title">Burro de Pastor</h3>
+                    <p class="menu-item-description">Tortilla grande rellena de pastor</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tacos" class="menu-section">
+            <h2 class="section-title">Tacos</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌮</span>
+                    <h3 class="menu-item-title">Tacos de Asada</h3>
+                    <p class="menu-item-description">Carne asada con cebolla y cilantro</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌮</span>
+                    <h3 class="menu-item-title">Tacos de Pastor</h3>
+                    <p class="menu-item-description">Pastor con piña, cebolla y cilantro</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌮</span>
+                    <h3 class="menu-item-title">Tacos de Pollo</h3>
+                    <p class="menu-item-description">Pollo deshebrado con cebolla y cilantro</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌮</span>
+                    <h3 class="menu-item-title">Tacos de Carnitas</h3>
+                    <p class="menu-item-description">Carnitas con cebolla y cilantro</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="totopos" class="menu-section">
+            <h2 class="section-title">Totopos</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="menu-item-icon">🍽️</span>
+                    <h3 class="menu-item-title">Totopos con Guacamole</h3>
+                    <p class="menu-item-description">Totopos crujientes con guacamole fresco</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🍽️</span>
+                    <h3 class="menu-item-title">Totopos con Salsa</h3>
+                    <p class="menu-item-description">Totopos con salsa roja o verde</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="flautas" class="menu-section">
+            <h2 class="section-title">Flautas</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌯</span>
+                    <h3 class="menu-item-title">Flautas de Pollo</h3>
+                    <p class="menu-item-description">Tortillas enrolladas con pollo, fritas y bañadas en crema</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🌯</span>
+                    <h3 class="menu-item-title">Flautas de Res</h3>
+                    <p class="menu-item-description">Tortillas enrolladas con res, fritas y bañadas en crema</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quesadillas" class="menu-section">
+            <h2 class="section-title">Quesadillas</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="menu-item-icon">🧀</span>
+                    <h3 class="menu-item-title">Quesadilla de Queso</h3>
+                    <p class="menu-item-description">Tortilla con queso derretido</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🧀</span>
+                    <h3 class="menu-item-title">Quesadilla de Pollo</h3>
+                    <p class="menu-item-description">Tortilla con queso y pollo</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🧀</span>
+                    <h3 class="menu-item-title">Quesadilla de Carne</h3>
+                    <p class="menu-item-description">Tortilla con queso y carne asada</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="bebidas" class="menu-section">
+            <h2 class="section-title">Bebidas</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="menu-item-icon">🥤</span>
+                    <h3 class="menu-item-title">Agua Fresca</h3>
+                    <p class="menu-item-description">Horchata, Jamaica, Tamarindo</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🍺</span>
+                    <h3 class="menu-item-title">Cerveza</h3>
+                    <p class="menu-item-description">Variedad de cervezas mexicanas</p>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-icon">🥤</span>
+                    <h3 class="menu-item-title">Refrescos</h3>
+                    <p class="menu-item-description">Coca-Cola, Sprite, Fanta</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2 class="contact-title">Contacto</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px; color: #ffa500;">Contáctanos y síguenos</p>
+            <div class="social-links">
+                <a href="https://wa.me/1234567890" target="_blank" class="social-link whatsapp">WhatsApp</a>
+                <a href="https://www.instagram.com" target="_blank" class="social-link instagram">Instagram</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">El Cartel Taquería</div>
+                <div class="footer-tagline">Auténtico Sabor Mexicano</div>
+                <div class="footer-divider"></div>
+                <div class="footer-info">
+                    <p>Disfruta de la mejor comida mexicana</p>
+                    <p>Hecho con <strong>pasión</strong> y <strong>tradición</strong></p>
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright 2020 <strong>El Cartel Taquería</strong> – Design by <strong>π2 Marketing
+                            Digital</strong></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
