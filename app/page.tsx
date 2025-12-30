@@ -12,6 +12,7 @@ import Footer from "@/components/Footer"
 import Decorations from "@/components/Decorations"
 import MenuDrawer from "@/components/MenuDrawer"
 import HeroCarousel from "@/components/HeroCarousel"
+import MenuFeaturedSection from "@/components/MenuFeaturedSection"
 import MariachiHero from "@/components/MariachiHero"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -43,16 +44,17 @@ export default function Home() {
         {/* Espacio para el navbar fijo */}
         <div className="h-24 md:h-28 lg:h-32"></div>
 
-        <div className="mb-12 md:mb-24">
+        <div className="mb-20">
           <HeroCarousel />
         </div>
-        <div className="mb-12 md:mb-24">
-          <MariachiHero />
+
+        <div className="my-20">
+          <MenuFeaturedSection />
         </div>
 
-        <div className="h-12 md:h-20"></div>
-
-        {/* <ContactSection id="contacto" /> */}
+        <div className="my-20">
+          <MariachiHero />
+        </div>
       </div>
       <Footer />
     </div>
