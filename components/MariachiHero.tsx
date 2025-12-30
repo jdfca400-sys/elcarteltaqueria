@@ -62,7 +62,7 @@ const variants = {
 const TRANSITION_SETTINGS = {
     x: { type: "tween", duration: 0.8, ease: "easeInOut" },
     opacity: { duration: 0.8, ease: "easeInOut" }
-}
+} as const
 
 export default function MariachiHero() {
     const [[page, direction], setPage] = useState([0, 0])
@@ -86,7 +86,7 @@ export default function MariachiHero() {
 
     // Optimization for mobile images: priority on the first one, sizes prop
     return (
-        <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden bg-[#0d0d0d] group border-t border-[#00ff88]/20">
+        <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden group rounded-[2rem] md:rounded-[3rem] shadow-2xl">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div
                     key={page}
@@ -110,7 +110,7 @@ export default function MariachiHero() {
                         src={slides[slideIndex].image}
                         alt={slides[slideIndex].title}
                         fill
-                        className="object-cover opacity-80"
+                        className="object-cover"
                         sizes="(max-width: 768px) 100vw, 100vw"
                         priority={true}
                     />
@@ -141,8 +141,8 @@ export default function MariachiHero() {
                                 transition={{ delay: 0.8, duration: 0.5 }}
                             >
                                 <Link href="/reservar">
-                                    <Button className="bg-red-600 hover:bg-red-700 text-white text-lg md:text-xl px-10 py-6 uppercase font-bold font-oswald tracking-wider transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(220,38,38,0.4)] border border-red-400/30">
-                                        {slides[slideIndex].cta}
+                                    <Button className="bg-[#00ff88] text-black hover:bg-white hover:text-black text-lg md:text-xl px-10 py-6 uppercase font-bold font-oswald tracking-wider transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(0,255,136,0.3)]">
+                                        👉 {slides[slideIndex].cta}
                                     </Button>
                                 </Link>
                             </motion.div>

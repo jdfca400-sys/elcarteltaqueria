@@ -35,7 +35,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 bg-[#0d2b2b]/98 backdrop-blur-lg border-b border-[#00ff88]/20 shadow-2xl"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#0d2b2b]/98 backdrop-blur-lg shadow-2xl"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -82,7 +82,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
                   }}
                 >
                   <Image
-                    src="/EL CARTEL DE LA TAQUERIA logo.png"
+                    src="/logo-el-cartel-taqueria.png"
                     alt="El Cartel Taquería"
                     fill
                     className="object-contain object-left"
@@ -91,31 +91,24 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
                 </motion.div>
               </Link>
 
-              <motion.div
-                className="relative w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 flex-shrink-0"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6, type: "spring", stiffness: 200, damping: 15 }}
-              >
-                <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-[#00ff88] shadow-lg">
-                  <Image
-                    src="/catrin-catrina.jpg"
-                    alt="Catrin y Catrina - El Cartel Taquería"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </motion.div>
             </motion.div>
 
-            {/* Menu & Contact Buttons - Centered/Right */}
+            {/* Menu & Contact Buttons - Right Aligned */}
             <motion.div
-              className="flex items-center justify-end gap-2 md:gap-2.5 lg:gap-3 flex-1 px-4 md:px-0 md:absolute md:left-[42%] md:-translate-x-1/2 md:justify-center"
+              className="flex items-center justify-end gap-2 md:gap-2.5 lg:gap-3 px-4 md:px-0"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
+              {!isReservationPage && (
+                <Link href="/reservar">
+                  <Button
+                    className="bg-[#00ff88] text-black hover:bg-white hover:text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-5 py-2 md:py-2.5 font-bold shadow-[0_0_15px_rgba(0,255,136,0.3)] flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
+                  >
+                    👉 Reserva
+                  </Button>
+                </Link>
+              )}
               {isReservationPage ? (
                 <Link href="/">
                   <Button
@@ -128,21 +121,11 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               ) : (
                 <Button
                   onClick={onMenuClick}
-                  className="bg-[#00ff88] hover:bg-[#00cc6a] text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-2 md:py-2.5 font-bold shadow-lg flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
+                  className="bg-[#00ff88] text-black hover:bg-white hover:text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-5 py-2 md:py-2.5 font-bold shadow-[0_0_15px_rgba(0,255,136,0.3)] flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
                 >
                   <Menu className="w-4 h-4 md:w-5 md:h-5" />
                   <span className="hidden sm:inline">Menú</span>
                 </Button>
-              )}
-              {!isReservationPage && (
-                <Link href="/reservar">
-                  {/* Updated Reserva Button to match Menu Button style exactly */}
-                  <Button
-                    className="bg-[#00ff88] hover:bg-[#00cc6a] text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-2 md:py-2.5 font-bold shadow-lg flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
-                  >
-                    Reserva
-                  </Button>
-                </Link>
               )}
             </motion.div>
           </div>

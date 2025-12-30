@@ -63,7 +63,7 @@ const variants = {
 const TRANSITION_SETTINGS = {
     x: { type: "tween", duration: 0.8, ease: "easeInOut" },
     opacity: { duration: 0.8, ease: "easeInOut" }
-}
+} as const
 
 export default function HeroCarousel() {
     const [[page, direction], setPage] = useState([0, 0])
@@ -89,7 +89,39 @@ export default function HeroCarousel() {
     }
 
     return (
-        <section className="relative w-full h-[80vh] min-h-[600px] overflow-hidden bg-black group">
+        <section className="relative w-full h-[80vh] min-h-[600px] overflow-hidden group rounded-[2rem] md:rounded-[3rem] shadow-2xl">
+            {/* Animated Contour Line Overlay */}
+            <div className="absolute inset-0 z-30 pointer-events-none">
+                <svg className="w-full h-full" preserveAspectRatio="none">
+                    <motion.rect
+                        x="1.5"
+                        y="1.5"
+                        width="calc(100% - 3px)"
+                        height="calc(100% - 3px)"
+                        rx="48"
+                        ry="48"
+                        fill="transparent"
+                        stroke="#00ff88"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{
+                            pathLength: [0, 1],
+                            opacity: [0, 1, 1, 0]
+                        }}
+                        transition={{
+                            duration: 5,
+                            repeat: Infinity,
+                            ease: "linear",
+                            times: [0, 0.1, 0.9, 1]
+                        }}
+                        style={{
+                            filter: "drop-shadow(0 0 8px #00ff88)",
+                        }}
+                    />
+                </svg>
+            </div>
+
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div
                     key={page}

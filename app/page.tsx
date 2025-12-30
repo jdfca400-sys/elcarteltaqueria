@@ -6,7 +6,8 @@ import { useState } from "react"
 import Navbar from "@/components/Navbar"
 import MenuSection from "@/components/MenuSection"
 import NotebookPageFlip from "@/components/NotebookPageFlip"
-import ContactSection from "@/components/ContactSection"
+import notebookPageFlip from "@/components/NotebookPageFlip"
+// import ContactSection from "@/components/ContactSection"
 import Footer from "@/components/Footer"
 import Decorations from "@/components/Decorations"
 import MenuDrawer from "@/components/MenuDrawer"
@@ -29,25 +30,30 @@ export default function Home() {
 
   // Render main content
   return (
-    <div className="relative z-10 max-w-7xl mx-auto px-5 min-h-screen">
-      <Navbar onMenuClick={() => setIsMenuOpen(true)} />
-      <MenuDrawer
-        menuData={menuData}
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-      />
-      <Decorations />
+    <div className="relative min-h-screen">
+      <div className="relative z-10 max-w-7xl mx-auto px-5">
+        <Navbar onMenuClick={() => setIsMenuOpen(true)} />
+        <MenuDrawer
+          menuData={menuData}
+          isOpen={isMenuOpen}
+          onClose={() => setIsMenuOpen(false)}
+        />
+        <Decorations />
 
-      {/* Espacio para el navbar fijo */}
-      {/* Espacio para el navbar fijo */}
-      <div className="h-24 md:h-28 lg:h-32"></div>
+        {/* Espacio para el navbar fijo */}
+        <div className="h-24 md:h-28 lg:h-32"></div>
 
-      <div className="mb-12 md:mb-24">
-        <HeroCarousel />
+        <div className="mb-12 md:mb-24">
+          <HeroCarousel />
+        </div>
+        <div className="mb-12 md:mb-24">
+          <MariachiHero />
+        </div>
+
+        <div className="h-12 md:h-20"></div>
+
+        {/* <ContactSection id="contacto" /> */}
       </div>
-      <MariachiHero />
-
-      <ContactSection id="contacto" />
       <Footer />
     </div>
   )

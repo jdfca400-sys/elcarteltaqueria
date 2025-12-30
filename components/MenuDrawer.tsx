@@ -63,17 +63,7 @@ export default function MenuDrawer({ menuData, isOpen, onClose }: MenuDrawerProp
             {/* Header del drawer */}
             <div className="sticky top-0 bg-black/90 backdrop-blur-md border-b border-orange-500/30 p-6 flex items-center justify-between z-10">
               <div className="flex items-center gap-4">
-                <div className="relative w-20 h-20">
-                  <Image
-                    src="/cartel taqueria.png"
-                    alt="El Cartel Taquería"
-                    width={80}
-                    height={80}
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                <h2 className="font-oswald text-2xl text-orange-500 uppercase tracking-wider">
+                <h2 className="font-oswald text-3xl text-orange-500 uppercase tracking-wider">
                   Menú
                 </h2>
               </div>
