@@ -78,59 +78,59 @@ export default function MenuDrawer({ menuData, isOpen, onClose }: MenuDrawerProp
             </div>
 
             {/* Contenido del menú */}
-            <div className="p-6 space-y-12">
-              <div className="flex flex-col gap-4">
+            <div className="p-6 space-y-8">
+              <div className="flex flex-col gap-2">
                 <h3 className="font-oswald text-xl text-gray-400 uppercase tracking-widest border-b border-gray-800 pb-2 mb-4">
                   Categorías
                 </h3>
 
-                <Link href="/menu/entradas" onClick={onClose}>
-                  <Button className="w-full justify-start text-left bg-transparent hover:bg-[#00ff88]/10 border border-gray-800 hover:border-[#00ff88]/50 text-white hover:text-[#00ff88] font-oswald text-xl uppercase tracking-wider py-6 transition-all group">
-                    <span className="mr-3 text-2xl group-hover:scale-110 transition-transform">🥗</span>
-                    Entradas
-                  </Button>
+                <Link href="#entradas" onClick={onClose} className="block group">
+                  <div className="flex items-center justify-between py-3 px-2 text-white hover:text-[#00ff88] transition-colors border-b border-gray-800/50 group-hover:border-[#00ff88]/30">
+                    <span className="font-oswald text-xl uppercase tracking-wider">Entradas</span>
+                    <span className="text-xl group-hover:scale-110 transition-transform">🥗</span>
+                  </div>
                 </Link>
 
-                <Link href="/menu/tacos" onClick={onClose}>
-                  <Button className="w-full justify-start text-left bg-transparent hover:bg-[#00ff88]/10 border border-gray-800 hover:border-[#00ff88]/50 text-white hover:text-[#00ff88] font-oswald text-xl uppercase tracking-wider py-6 transition-all group">
-                    <span className="mr-3 text-2xl group-hover:scale-110 transition-transform">🌮</span>
-                    Nuestros Tacos
-                  </Button>
+                <Link href="#tacos" onClick={onClose} className="block group">
+                  <div className="flex items-center justify-between py-3 px-2 text-white hover:text-[#00ff88] transition-colors border-b border-gray-800/50 group-hover:border-[#00ff88]/30">
+                    <span className="font-oswald text-xl uppercase tracking-wider">Nuestros Tacos</span>
+                    <span className="text-xl group-hover:scale-110 transition-transform">🌮</span>
+                  </div>
                 </Link>
 
-                <Link href="/menu/burros" onClick={onClose}>
-                  <Button className="w-full justify-start text-left bg-transparent hover:bg-orange-500/10 border border-gray-800 hover:border-orange-500/50 text-white hover:text-orange-500 font-oswald text-xl uppercase tracking-wider py-6 transition-all group">
-                    <span className="mr-3 text-2xl group-hover:scale-110 transition-transform">🌯</span>
-                    Nuestros Burros
-                  </Button>
+                <Link href="#burros" onClick={onClose} className="block group">
+                  <div className="flex items-center justify-between py-3 px-2 text-white hover:text-orange-500 transition-colors border-b border-gray-800/50 group-hover:border-orange-500/30">
+                    <span className="font-oswald text-xl uppercase tracking-wider">Nuestros Burros</span>
+                    <span className="text-xl group-hover:scale-110 transition-transform">🌯</span>
+                  </div>
                 </Link>
 
-                <Link href="/menu/infantil" onClick={onClose}>
-                  <Button className="w-full justify-start text-left bg-transparent hover:bg-yellow-500/10 border border-gray-800 hover:border-yellow-500/50 text-white hover:text-yellow-500 font-oswald text-xl uppercase tracking-wider py-6 transition-all group">
-                    <span className="mr-3 text-2xl group-hover:scale-110 transition-transform">🧸</span>
-                    Menú Infantil
-                  </Button>
+                <Link href="#infantil" onClick={onClose} className="block group">
+                  <div className="flex items-center justify-between py-3 px-2 text-white hover:text-yellow-500 transition-colors border-b border-gray-800/50 group-hover:border-yellow-500/30">
+                    <span className="font-oswald text-xl uppercase tracking-wider">Menú Infantil</span>
+                    <span className="text-xl group-hover:scale-110 transition-transform">🧸</span>
+                  </div>
                 </Link>
 
-                <Link href="/menu/shows" onClick={onClose}>
-                  <Button className="w-full justify-start text-left bg-transparent hover:bg-red-500/10 border border-gray-800 hover:border-red-500/50 text-white hover:text-red-500 font-oswald text-xl uppercase tracking-wider py-6 transition-all group">
-                    <span className="mr-3 text-2xl group-hover:scale-110 transition-transform">🎺</span>
-                    Shows de Mariachis
-                  </Button>
+                <Link href="#shows" onClick={onClose} className="block group">
+                  <div className="flex items-center justify-between py-3 px-2 text-white hover:text-red-500 transition-colors border-b border-gray-800/50 group-hover:border-red-500/30">
+                    <span className="font-oswald text-xl uppercase tracking-wider">Shows de Mariachis</span>
+                    <span className="text-xl group-hover:scale-110 transition-transform">🎺</span>
+                  </div>
                 </Link>
 
-                <Link href="/menu/especialidades" onClick={onClose}>
-                  <Button className="w-full justify-start text-left bg-transparent hover:bg-purple-500/10 border border-gray-800 hover:border-purple-500/50 text-white hover:text-purple-500 font-oswald text-xl uppercase tracking-wider py-6 transition-all group">
-                    <span className="mr-3 text-2xl group-hover:scale-110 transition-transform">🍽️</span>
-                    Más Especialidades
-                  </Button>
+                <Link href="#especialidades" onClick={onClose} className="block group">
+                  <div className="flex items-center justify-between py-3 px-2 text-white hover:text-purple-500 transition-colors border-b border-gray-800/50 group-hover:border-purple-500/30">
+                    <span className="font-oswald text-xl uppercase tracking-wider">Más Especialidades</span>
+                    <span className="text-xl group-hover:scale-110 transition-transform">🍽️</span>
+                  </div>
                 </Link>
 
-                <Link href="/menu/bebidas" onClick={onClose}>
-                  <Button className="w-full justify-start text-left bg-transparent hover:bg-cyan-500/10 border border-gray-800 hover:border-cyan-500/50 text-white hover:text-cyan-500 font-oswald text-xl uppercase tracking-wider py-6 transition-all group">
-                    <span className="mr-3 text-2xl group-hover:scale-110 transition-transform">🍺</span>
-                    Bebidas & Cervezas
-                  </Button>
+                <Link href="#bebidas" onClick={onClose} className="block group">
+                  <div className="flex items-center justify-between py-3 px-2 text-white hover:text-cyan-500 transition-colors border-b border-gray-800/50 group-hover:border-cyan-500/30">
+                    <span className="font-oswald text-xl uppercase tracking-wider">Bebidas & Cervezas</span>
+                    <span className="text-xl group-hover:scale-110 transition-transform">🍺</span>
+                  </div>
                 </Link>
 
                 {pathname !== "/" && (
