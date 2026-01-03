@@ -9,14 +9,11 @@ import { usePathname } from "next/navigation"
 import Image from "next/image"
 
 interface MenuDrawerProps {
-  menuData: {
-    entradas: Array<{ icon: string; title: string; description: string }>
-  }
   isOpen: boolean
   onClose: () => void
 }
 
-export default function MenuDrawer({ menuData, isOpen, onClose }: MenuDrawerProps) {
+export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
   const pathname = usePathname()
   // Cerrar con ESC
   useEffect(() => {
@@ -35,9 +32,7 @@ export default function MenuDrawer({ menuData, isOpen, onClose }: MenuDrawerProp
     }
   }, [isOpen, onClose])
 
-  const menuSections = [
-    { id: "entradas", title: "Entradas", items: menuData.entradas },
-  ]
+
 
   return (
     <AnimatePresence>
@@ -84,49 +79,49 @@ export default function MenuDrawer({ menuData, isOpen, onClose }: MenuDrawerProp
                   Categorías
                 </h3>
 
-                <Link href="#entradas" onClick={onClose} className="block group">
+                <Link href="/menu#entradas" onClick={onClose} className="block group">
                   <div className="flex items-center justify-between py-3 px-2 text-white hover:text-[#00ff88] transition-colors border-b border-gray-800/50 group-hover:border-[#00ff88]/30">
                     <span className="font-oswald text-xl uppercase tracking-wider">Entradas</span>
                     <span className="text-xl group-hover:scale-110 transition-transform">🥗</span>
                   </div>
                 </Link>
 
-                <Link href="#tacos" onClick={onClose} className="block group">
+                <Link href="/menu#tacos" onClick={onClose} className="block group">
                   <div className="flex items-center justify-between py-3 px-2 text-white hover:text-[#00ff88] transition-colors border-b border-gray-800/50 group-hover:border-[#00ff88]/30">
                     <span className="font-oswald text-xl uppercase tracking-wider">Nuestros Tacos</span>
                     <span className="text-xl group-hover:scale-110 transition-transform">🌮</span>
                   </div>
                 </Link>
 
-                <Link href="#burros" onClick={onClose} className="block group">
+                <Link href="/menu#burros" onClick={onClose} className="block group">
                   <div className="flex items-center justify-between py-3 px-2 text-white hover:text-orange-500 transition-colors border-b border-gray-800/50 group-hover:border-orange-500/30">
                     <span className="font-oswald text-xl uppercase tracking-wider">Nuestros Burros</span>
                     <span className="text-xl group-hover:scale-110 transition-transform">🌯</span>
                   </div>
                 </Link>
 
-                <Link href="#infantil" onClick={onClose} className="block group">
+                <Link href="/menu#infantil" onClick={onClose} className="block group">
                   <div className="flex items-center justify-between py-3 px-2 text-white hover:text-yellow-500 transition-colors border-b border-gray-800/50 group-hover:border-yellow-500/30">
                     <span className="font-oswald text-xl uppercase tracking-wider">Menú Infantil</span>
                     <span className="text-xl group-hover:scale-110 transition-transform">🧸</span>
                   </div>
                 </Link>
 
-                <Link href="#shows" onClick={onClose} className="block group">
+                <Link href="/menu#shows" onClick={onClose} className="block group">
                   <div className="flex items-center justify-between py-3 px-2 text-white hover:text-red-500 transition-colors border-b border-gray-800/50 group-hover:border-red-500/30">
                     <span className="font-oswald text-xl uppercase tracking-wider">Shows de Mariachis</span>
                     <span className="text-xl group-hover:scale-110 transition-transform">🎺</span>
                   </div>
                 </Link>
 
-                <Link href="#especialidades" onClick={onClose} className="block group">
+                <Link href="/menu#especialidades" onClick={onClose} className="block group">
                   <div className="flex items-center justify-between py-3 px-2 text-white hover:text-purple-500 transition-colors border-b border-gray-800/50 group-hover:border-purple-500/30">
                     <span className="font-oswald text-xl uppercase tracking-wider">Más Especialidades</span>
                     <span className="text-xl group-hover:scale-110 transition-transform">🍽️</span>
                   </div>
                 </Link>
 
-                <Link href="#bebidas" onClick={onClose} className="block group">
+                <Link href="/menu#bebidas" onClick={onClose} className="block group">
                   <div className="flex items-center justify-between py-3 px-2 text-white hover:text-cyan-500 transition-colors border-b border-gray-800/50 group-hover:border-cyan-500/30">
                     <span className="font-oswald text-xl uppercase tracking-wider">Bebidas & Cervezas</span>
                     <span className="text-xl group-hover:scale-110 transition-transform">🍺</span>

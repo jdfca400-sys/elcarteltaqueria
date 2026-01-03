@@ -43,7 +43,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col py-2 md:py-3">
           {/* Primera fila: Logo, Navegación y Botones */}
-          <div className="flex items-center justify-between min-h-[60px] md:min-h-[70px] relative">
+          <div className="flex items-center justify-between min-h-[60px] md:min-h-[80px] relative">
             {/* Logo - Left Side */}
             <motion.div
               className="flex items-center flex-shrink-0 gap-2 md:gap-3 cursor-pointer"
@@ -53,31 +53,18 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
             >
               <Link href="/">
                 <motion.div
-                  className="relative w-48 h-16 md:w-60 md:h-20 lg:w-72 lg:h-24"
+                  className="relative w-40 h-12 sm:w-48 sm:h-16 md:w-60 md:h-20 lg:w-72 lg:h-24"
                   style={{ originX: 0 }}
-                  animate={isScrolled ? "scrolled" : "top"}
                   whileHover="hover"
                   variants={{
                     top: {
                       scale: 1,
                       y: 0,
-                      filter: "drop-shadow(0 0 0px rgba(0,255,136,0))",
-                      transition: { type: "spring", stiffness: 300, damping: 20 }
-                    },
-                    scrolled: {
-                      scale: 0.88,
-                      y: -4,
-                      filter: "drop-shadow(0 0 0px rgba(0,255,136,0))",
-                      transition: { duration: 0.3 }
                     },
                     hover: {
-                      scale: 1.02,
-                      filter: "drop-shadow(0 0 8px rgba(0,255,136,0.3))",
+                      scale: 1.05,
+                      filter: "drop-shadow(0 0 12px rgba(0,255,136,0.5))",
                       transition: { duration: 0.2 }
-                    },
-                    pulse: {
-                      filter: ["drop-shadow(0 0 0px rgba(0,255,136,0))", "drop-shadow(0 0 15px rgba(0,255,136,0.6))", "drop-shadow(0 0 0px rgba(0,255,136,0))"],
-                      transition: { duration: 0.3 }
                     }
                   }}
                 >
@@ -95,7 +82,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
 
             {/* Menu & Contact Buttons - Right Aligned */}
             <motion.div
-              className="flex items-center justify-end gap-2 md:gap-2.5 lg:gap-3 px-4 md:px-0"
+              className="flex items-center justify-end gap-2 md:gap-2.5 lg:gap-3 px-0.5 md:px-0"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -103,7 +90,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               {!isReservationPage && (
                 <Link href="/reservar">
                   <Button
-                    className="bg-[#00ff88] text-black hover:bg-white hover:text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-5 py-2 md:py-2.5 font-bold shadow-[0_0_15px_rgba(0,255,136,0.3)] flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
+                    className="hidden sm:flex bg-[#00ff88] text-black hover:bg-white hover:text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 font-bold shadow-[0_0_15px_rgba(0,255,136,0.3)] items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
                   >
                     👉 Reserva
                   </Button>
@@ -112,7 +99,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               {isReservationPage ? (
                 <Link href="/">
                   <Button
-                    className="bg-transparent hover:bg-white/10 text-white font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-2 md:py-2.5 font-bold flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105 border border-white/20"
+                    className="bg-transparent hover:bg-white/10 text-white font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 font-bold flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105 border border-white/20"
                   >
                     <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
                     <span className="hidden sm:inline">Volver al comienzo</span>
@@ -121,7 +108,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               ) : (
                 <Button
                   onClick={onMenuClick}
-                  className="bg-[#00ff88] text-black hover:bg-white hover:text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-5 py-2 md:py-2.5 font-bold shadow-[0_0_15px_rgba(0,255,136,0.3)] flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
+                  className="bg-[#00ff88] text-black hover:bg-white hover:text-black font-oswald text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 font-bold shadow-[0_0_15px_rgba(0,255,136,0.3)] flex items-center gap-1.5 md:gap-2 transition-all hover:scale-105"
                 >
                   <Menu className="w-4 h-4 md:w-5 md:h-5" />
                   <span className="hidden sm:inline">Menú</span>
