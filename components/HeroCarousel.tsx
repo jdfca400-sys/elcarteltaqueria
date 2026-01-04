@@ -157,7 +157,7 @@ export default function HeroCarousel() {
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.4, duration: 0.5 }}
-                                className="text-[#00ff88] text-xl md:text-2xl font-oswald uppercase tracking-[0.2em] mb-2 font-bold"
+                                className="text-[#00ff88] text-xl md:text-xl font-oswald uppercase tracking-[0.2em] mb-2 font-bold"
                             >
                                 {slides[slideIndex].title}
                             </motion.h2>
@@ -165,7 +165,7 @@ export default function HeroCarousel() {
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.6, duration: 0.5 }}
-                                className="text-white text-4xl md:text-7xl font-black font-oswald uppercase leading-[1.1] mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]"
+                                className="text-white text-4xl md:text-6xl font-black font-oswald uppercase leading-[1.1] mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]"
                             >
                                 {slides[slideIndex].subtitle}
                             </motion.h1>

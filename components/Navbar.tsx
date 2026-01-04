@@ -41,9 +41,9 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col py-2 md:py-3">
+        <div className="flex flex-col py-1.5 md:py-2">
           {/* Primera fila: Logo, Navegación y Botones */}
-          <div className="flex items-center justify-between min-h-[60px] md:min-h-[80px] relative">
+          <div className="flex items-center justify-between min-h-[56px] md:min-h-[72px] relative">
             {/* Logo - Left Side */}
             <motion.div
               className="flex items-center flex-shrink-0 gap-2 md:gap-3 cursor-pointer"
@@ -53,7 +53,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
             >
               <Link href="/">
                 <motion.div
-                  className="relative w-40 h-12 sm:w-48 sm:h-16 md:w-60 md:h-20 lg:w-72 lg:h-24"
+                  className="relative w-36 h-10 sm:w-44 sm:h-12 md:w-52 md:h-14 lg:w-64 lg:h-16"
                   style={{ originX: 0 }}
                   whileHover="hover"
                   variants={{

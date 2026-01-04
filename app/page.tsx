@@ -23,17 +23,19 @@ export default function Home() {
         />
 
         {/* Espacio para el navbar fijo */}
-        <div className="h-16 md:h-24"></div>
+        <div className="h-[60px] md:h-[80px]"></div>
 
-        <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-6rem)] flex flex-col justify-center mb-20">
+        <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] flex flex-col justify-center mb-10 md:mb-20">
           <HeroCarousel />
         </div>
 
-        <div className="my-20 min-h-[95vh] flex flex-col justify-center">
+        <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] flex flex-col justify-center">
           <MenuFeaturedSection />
         </div>
 
-        <MariachiHero />
+        <div className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] flex flex-col justify-center mb-12 md:mb-32">
+          <MariachiHero />
+        </div>
       </div>
       <Footer />
     </div>

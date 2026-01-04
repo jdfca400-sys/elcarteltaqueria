@@ -81,14 +81,14 @@ export default function MariachiHero() {
     }
 
     return (
-        <div className="w-full mb-20">
+        <div className="w-full h-full flex flex-col justify-center items-center py-4 md:py-8">
             {/* SECTION TITLE */}
-            <div className="mt-20 md:mt-32 mb-8 md:mb-12 text-center px-4">
+            <div className="mb-4 md:mb-8 text-center px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-x-12"
+                    className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1 md:gap-x-12"
                 >
                     {["SHOW", "EN", "VIVO"].map((word, wordIndex) => (
                         <motion.div
@@ -98,7 +98,7 @@ export default function MariachiHero() {
                             transition={{ delay: wordIndex * 0.2, duration: 0.5 }}
                             className="relative"
                         >
-                            <h2 className="font-oswald font-black text-5xl xs:text-6xl sm:text-7xl md:text-9xl uppercase tracking-tighter text-red-500 relative z-10"
+                            <h2 className="font-oswald font-black text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tighter text-red-500 relative z-10"
                                 style={{
                                     textShadow: "0 0 10px rgba(239, 68, 68, 0.9), 0 0 20px rgba(239, 68, 68, 0.4)"
                                 }}
@@ -112,7 +112,7 @@ export default function MariachiHero() {
             </div>
 
             {/* HERO SECTION CARD */}
-            <section className="relative w-full h-[calc(100vh-15rem)] md:h-[calc(100vh-25rem)] min-h-[400px] overflow-hidden group rounded-[2rem] md:rounded-[3rem] shadow-2xl">
+            <section className="relative w-full h-[95%] min-h-[380px] overflow-hidden group rounded-[2rem] md:rounded-[3rem] shadow-2xl">
                 <AnimatePresence initial={false} custom={direction} mode="popLayout">
                     <motion.div
                         key={page}
